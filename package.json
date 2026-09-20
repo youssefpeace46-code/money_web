@@ -1,0 +1,1 @@
+{"name":"souq-al-mashir","private":true,"version":"1.0.0","scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","preview":"vite preview --host 0.0.0.0","check":"node --check src/app.js && node --check src/admin.js && node --check public/sw.js"},"dependencies":{"@supabase/supabase-js":"^2.57.4"},"devDependencies":{"vite":"^7.1.7"}}

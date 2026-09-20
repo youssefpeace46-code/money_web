@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b5139"><meta name="description" content="سوق ليبي بسيط لعرض طلبات بيع وشراء العملات والخدمات المالية">
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles.css"><title>سوق المشير المالي</title>
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="/" aria-label="الرئيسية"><img src="/icons/icon.svg" alt=""><span><b>سوق المشير المالي</b><small>Souq Al-Mashir</small></span></a><button id="installBtn" class="btn btn-soft">ثبّت التطبيق</button></header>
+  <div class="ticker" aria-label="آخر الأخبار"><span class="ticker-label">آخر الأخبار</span><div class="ticker-window"><div id="tickerContent" class="ticker-content"><span>مرحبًا بكم في سوق المشير المالي — العروض المنشورة يقدمها المستخدمون وليست أسعارًا رسمية.</span></div></div></div>
+  <main>
+    <section class="hero"><div><span class="eyebrow">سوق مالي محلي وواضح</span><h1>اعثر على العرض المناسب،<br><em>وتواصل مباشرة.</em></h1><p>تصفّح عروض البيع والشراء في مدينتك. لا تحويلات ولا مدفوعات داخل الموقع.</p></div><button class="btn btn-gold add-trigger">＋ أضف عرضك</button></section>
+    <section class="market" aria-labelledby="offersTitle">
+      <div class="section-head"><div><span class="eyebrow">أحدث ما نُشر</span><h2 id="offersTitle">العروض المتاحة</h2></div><span id="resultsCount" class="count"></span></div>
+      <label class="search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="ابحث بالعملة أو المدينة…" autocomplete="off"></label>
+      <div id="categories" class="chips" aria-label="تصفية حسب القسم"></div>
+      <div id="statusMessage" class="state" role="status">جارٍ تحميل العروض…</div><div id="offersGrid" class="offers-grid"></div>
+    </section>
+    <aside class="notice"><span>تنبيه</span><p>العروض ينشرها المستخدمون والأسعار قابلة للتغيير. تحقّق من الهوية والتفاصيل قبل أي تعامل، ولا ترسل أموالًا لأشخاص لا تعرفهم.</p></aside>
+  </main>
+  <footer><div class="brand footer-brand"><img src="/icons/icon.svg" alt=""><b>سوق المشير المالي</b></div><p>منصة إعلانات وتواصل فقط — لا ننفّذ عمليات صرف أو مدفوعات.</p><a href="/admin.html">دخول الإدارة</a></footer>
+  <button class="mobile-add add-trigger">＋ أضف عرضك</button>
+  <dialog id="offerDialog"><form id="offerForm" method="dialog"><div class="modal-head"><div><span class="eyebrow">إعلان جديد</span><h2>أضف عرضك</h2></div><button class="icon-btn" value="cancel" formmethod="dialog" aria-label="إغلاق">×</button></div><p class="muted">سيظهر العرض بعد مراجعته والموافقة عليه.</p>
+    <div class="form-grid"><label>القسم<select name="category" required></select></label><label>نوع العملية<select name="operation" required><option value="بيع">بيع</option><option value="شراء">شراء</option></select></label><label>المبلغ أو الكمية<input name="amount" required maxlength="60" placeholder="مثال: 1,000 دولار"></label><label>السعر المطلوب <small>(اختياري)</small><input name="price" maxlength="60" placeholder="مثال: 6.50 د.ل"></label><label>المدينة<input name="city" required maxlength="60" placeholder="مثال: طرابلس"></label><label>رقم WhatsApp<input name="whatsapp" required inputmode="tel" pattern="[+0-9 ]{9,16}" placeholder="2189XXXXXXXX"></label><label class="wide">وصف مختصر <small>(اختياري)</small><textarea name="description" maxlength="280" rows="3"></textarea></label><label class="trap" aria-hidden="true">اتركه فارغًا<input name="website" tabindex="-1" autocomplete="off"></label></div>
+    <label class="consent"><input type="checkbox" required> أوافق على نشر رقم WhatsApp مع العرض.</label><div id="formMessage" class="form-message" role="status"></div><button class="btn btn-primary full" type="submit">إرسال العرض للمراجعة</button>
+  </form></dialog>
+  <dialog id="installDialog"><div class="modal-head"><h2>تثبيت التطبيق</h2><button class="icon-btn" onclick="this.closest('dialog').close()" aria-label="إغلاق">×</button></div><p id="installHelp"></p></dialog>
+  <script type="module" src="/src/app.js"></script>
+</body></html>
