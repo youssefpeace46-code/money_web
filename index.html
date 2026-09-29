@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#181F29">
+  <meta name="description" content="نموذج محلي تجريبي لساوم، لعرض عروض العملات والحوالات والصكوك.">
+  <title>ساوم | عروض العملات والحوالات</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#market">انتقل إلى العروض</a>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#" aria-label="ساوم، الصفحة الرئيسية">
+        <img class="logo" src="assets/logo.png" alt="" aria-hidden="true">
+        <span><h1>ساوم</h1><small>بواسطة القلعة للصرافة</small></span>
+      </a>
+      <div class="market-status" aria-label="سعر الدولار اليدوي">
+        <span class="dollar-rate-label">سعر الدولار</span>
+        <strong id="dollar-rate-value" class="ticker-price" dir="ltr">9.50</strong>
+        <div id="dollar-rate-meta" class="dollar-rate-meta" dir="ltr" hidden><time id="dollar-rate-date" hidden></time></div>
+      </div>
+      <button class="button primary desktop-add" data-add>＋ أضف عرضك</button>
+    </div>
+  </header>
+  <main>
+    <section id="market" class="market wrap" aria-labelledby="market-title">
+      <div class="search-control"><label class="visually-hidden" for="search">ابحث عن عرض</label><div class="input-icon"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="ابحث عن دولار، يورو، صكوك، حوالات…"></div></div>
+      <div class="categories" role="group" aria-label="تصفية حسب الفئة">
+        <button class="category active" data-category="all" aria-pressed="true">الكل</button>
+        <button class="category" data-category="usd" aria-pressed="false"><span class="currency-label" data-currency="USD" dir="ltr">🇺🇸 USD</span></button>
+        <button class="category" data-category="eur" aria-pressed="false"><span class="currency-label" data-currency="EUR" dir="ltr">🇪🇺 EUR</span></button>
+        <button class="category" data-category="cheque" aria-pressed="false"><span aria-hidden="true">📄</span> صكوك</button>
+        <button class="category" data-category="transfer" aria-pressed="false"><span aria-hidden="true">🔄</span> حوالات</button>
+      </div>
+      <details class="filter-details"><summary>تصفية حسب المدينة ونوع العرض <span id="filter-status"></span></summary><div class="filters"><div><label for="type-filter">نوع العرض</label><select id="type-filter"><option value="all">جميع الأنواع</option><option value="sell">بيع</option><option value="buy">شراء</option><option value="cheque">صكوك</option><option value="transfer">حوالات</option></select></div><div><label for="city-filter">المدينة</label><select id="city-filter"><option value="all">جميع المدن</option></select></div></div></details>
+      <div class="section-heading"><h2 id="market-title">أحدث العروض</h2><span id="result-count" role="status"></span></div>
+      <p id="storage-warning" class="warning" role="status" hidden></p><div id="offer-grid" class="offer-grid"></div><div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3>لا توجد عروض مطابقة</h3><p>جرّب مدينة أخرى أو غيّر كلمات البحث.</p><button id="reset-filters" class="button secondary">عرض كل العروض</button></div>
+      <div class="local-notice"><span class="notice-icon" aria-hidden="true">ⓘ</span><p><strong>هذه معاينة، وليست سوقًا منشورًا.</strong> العروض الافتراضية وهمية. أي عرض تضيفه يُحفظ في هذا المتصفح على جهازك فقط، ولا يراه أي مستخدم آخر.</p></div>
+    </section>
+    <section class="ticker" aria-label="شريط معلومات تجريبية"><div class="wrap ticker-inner"><div class="ticker-label"><span class="status-dot"></span> نشرة تجريبية</div><div class="ticker-window"><div class="ticker-track"><span><span class="currency-label" data-currency="USD" dir="ltr">🇺🇸 USD</span> <b class="ticker-price" dir="ltr" data-current="5.85">5.85 د.ل</b> <em>مثال فقط</em></span><i>✦</i><span><span class="currency-label" data-currency="EUR" dir="ltr">🇪🇺 EUR</span> <b class="ticker-price" dir="ltr" data-current="6.35">6.35 د.ل</b> <em>مثال فقط</em></span><i>✦</i><span>جميع الأسعار والعروض وهمية وغير مباشرة</span><i>✦</i><span>عروضك محفوظة في متصفحك فقط</span></div></div><button id="ticker-toggle" class="ticker-toggle" aria-label="إيقاف حركة النشرة" aria-pressed="false">Ⅱ</button></div></section>
+    <section id="about" class="about wrap"><div class="about-title"><span class="shield" aria-hidden="true">◇</span><h2>وضوح من أول خطوة.</h2></div><p>ساوم يعرض عروض المستخدمين ويتيح التواصل المباشر مع أصحابها. لا يعالج الموقع أي مدفوعات ولا ينفّذ عمليات صرف، ولا يضمن الأسعار أو الأطراف أو المعاملات. مسؤولية التحقق والاتفاق تقع على أطراف التعامل.</p></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-main"><div><strong>ساوم</strong><p>مساحة أبسط لعروضك المالية.</p></div><div class="footer-contact"><strong>تواصل معنا</strong><p>ستُضاف بيانات التواصل عند إطلاق الموقع.</p></div><a href="#market">العودة إلى العروض ↑</a></div><div class="wrap footer-bottom"><span>ساوم © <span id="year"></span></span><span>صُمّم لليبيا <span class="footer-dot">●</span> نسخة محلية تجريبية</span></div></footer>
+  <div class="mobile-add-bar"><button class="button primary mobile-add" data-add><span aria-hidden="true">＋</span> أضف عرضك</button></div>
+  <dialog id="offer-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><div class="eyebrow">بخطوات بسيطة</div><button type="button" class="close-dialog" id="close-dialog" aria-label="إغلاق النموذج">×</button><h2 id="dialog-title">أضف عرضك</h2><p>بدون حساب. أضف التفاصيل الأساسية فقط.</p></div><form id="offer-form"><div id="details-step"><p class="form-notice">عرض تجريبي يُحفظ على جهازك فقط، ولا يُنشر للآخرين.</p><div class="form-grid"><div class="full"><label for="owner-name">اسم صاحب العرض</label><input id="owner-name" name="ownerName" type="text" maxlength="60" autocomplete="name" placeholder="مثال: أحمد" required></div><div class="full"><label for="offer-category">فئة العرض</label><select id="offer-category" name="category" required><option value="" disabled selected>اختر فئة العرض</option><option value="sell-usd">بيع دولار · USD</option><option value="buy-usd">شراء دولار · USD</option><option value="sell-eur">بيع يورو · EUR</option><option value="buy-eur">شراء يورو · EUR</option><option value="cheque">صكوك</option><option value="transfer">حوالات</option></select></div><div><label for="amount" id="amount-label">المبلغ</label><input id="amount" name="amount" type="number" inputmode="decimal" min="0.01" max="1000000000" step="0.01" placeholder="مثال: 1000" required></div><div><label for="rate" id="rate-label">السعر المطلوب (د.ل)</label><input id="rate" name="rate" type="number" inputmode="decimal" min="0.0001" max="1000000000" step="0.0001" placeholder="مثال: 5.85" required></div><div class="full"><label for="offer-city">المدينة</label><select id="offer-city" name="city" required><option value="" disabled selected>اختر مدينتك</option><option>طرابلس</option><option>بنغازي</option><option>مصراتة</option><option>الزاوية</option><option>زليتن</option><option>سبها</option><option>البيضاء</option><option>طبرق</option><option>درنة</option><option>سرت</option><option>غريان</option><option>الخمس</option><option>أجدابيا</option><option>مدينة أخرى</option></select></div><div class="full"><label for="phone">رقم واتساب</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" maxlength="24" placeholder="+218 9X XXX XXXX" aria-describedby="phone-help" required><small id="phone-help">رقم ليبي يبدأ بـ 091 أو 092 أو 093 أو 094 أو 095، أو رقم دولي يبدأ بـ + ورمز الدولة. يُفحص تنسيق الرقم فقط، وليس وجود حساب واتساب.</small></div><div class="full"><label for="note">ملاحظة قصيرة <span class="optional">(اختياري)</span></label><textarea id="note" name="note" rows="2" maxlength="180" placeholder="تفصيل مفيد عن العرض…"></textarea></div></div><button class="button primary full-button" type="submit">مراجعة العرض ←</button></div><div id="confirm-step" hidden><p class="form-notice">راجِع عرضك ورقمك قبل الإضافة.</p><dl id="offer-summary" class="offer-summary"></dl><div class="consent"><input id="phone-consent" type="checkbox"><label for="phone-consent">أفهم أن رقم واتساب سيظهر ضمن بيانات العرض. في هذه النسخة يبقى محفوظًا في متصفحي فقط ولا يُنشر على الإنترنت.</label></div><div class="confirm-actions"><button class="button primary" id="publish-offer" type="button">تأكيد وإضافة محليًا</button><button class="button secondary" id="back-to-form" type="button">تعديل</button></div></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
